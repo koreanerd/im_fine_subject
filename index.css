@@ -1,0 +1,48 @@
+/* 모든 요소의 기본 여백 제거 */
+/* 모든 요소의 기본 여백 제거 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 기본 글꼴 설정 */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 버튼 초기화 */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 인풋 기본 스타일 조정 */
+input,
+textarea {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* 테이블 초기화 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
