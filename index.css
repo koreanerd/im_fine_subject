@@ -1,5 +1,4 @@
 /* 모든 요소의 기본 여백 제거 */
-/* 모든 요소의 기본 여백 제거 */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +7,20 @@
 
 /* 기본 글꼴 설정 */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* 어디서든 동일한 환경을 가지 위한 font-family 구성 */
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+
+  /* ✅ 중앙 정렬 추가 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* 리스트 스타일 제거 */
@@ -45,4 +54,100 @@ textarea {
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+/* 전체 앱 컨테이너 - 좌우 영역 나누기 */
+#app-container {
+  display: flex;
+  gap: 24px;
+
+  /* ✅ 중앙 정렬을 위한 크기 제한 */
+  width: 100%;
+  max-width: 1200px;
+  height: 60vh;
+
+  padding: 16px;
+  box-sizing: border-box;
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 왼쪽 영역 - 차트, 테이블, 폼 */
+#left-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 8;
+
+  /* ✅ 전체 높이를 채우게 */
+  height: 100%;
+
+  /* ✅ 자식들이 공간을 나눠 가질 수 있도록 */
+  justify-content: stretch;
+}
+
+/* 오른쪽 영역 - JSON 편집기 */
+#right-pane {
+  flex: 2;
+  display: flex; /* 하위 요소 배치용 */
+  flex-direction: column;
+  height: 100%; /* ← 부모(app-container)의 높이 채우기 */
+  overflow-y: auto;
+}
+
+/* 각 렌더러 영역 공통 스타일 */
+#chart-container,
+#table-container,
+#json-editor {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+#chart-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+#table-container {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 입력 폼 스타일 */
+#add-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#add-form input[type="text"],
+#add-form input[type="number"] {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+#add-form button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#json-editor {
+  flex: 1; /* ← 남은 공간 모두 차지 */
+  display: flex;
+  flex-direction: column;
+}
+
+#json-editor textarea {
+  flex: 1;
+  resize: none;
+  height: 100%;
 }
