@@ -1,5 +1,5 @@
-import { getState } from "./state.js";
-import { createTextElement } from "./utils.js";
+import { getState } from "../core/state.js";
+import { createTextElement } from "../utils/utils.js";
 
 export function chartRenderer() {
   const container = document.getElementById("chart-container");

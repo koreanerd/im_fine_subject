@@ -1,5 +1,9 @@
-import { getState, setState } from "./state.js";
-import { getNextId, saveIdCounter, resetIdCounterTo } from "./idManager.js";
+import { getState, setState } from "../core/state.js";
+import {
+  getNextId,
+  saveIdCounter,
+  resetIdCounterTo,
+} from "../core/idManager.js";
 
 /**
  * 데이터 추가 폼 핸들러

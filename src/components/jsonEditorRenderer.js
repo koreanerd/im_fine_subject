@@ -1,6 +1,6 @@
-import { getState, setState } from "./state.js";
-import { createTextElement } from "./utils.js";
-import { resetIdCounterTo } from "./idManager.js"; // ID 관리 일관성을 위해 사용
+import { getState, setState } from "../core/state.js";
+import { createTextElement } from "../utils/utils.js";
+import { resetIdCounterTo } from "../core/idManager.js"; // ID 관리 일관성을 위해 사용
 
 export function jsonEditorRenderer() {
   const container = document.getElementById("json-editor");

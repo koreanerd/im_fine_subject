@@ -1,5 +1,5 @@
-import { getState, setState } from "./state.js";
-import { createTextElement } from "./utils.js";
+import { getState, setState } from "../core/state.js";
+import { createTextElement } from "../utils/utils.js";
 
 /**
  * 테이블 UI를 렌더링합니다.

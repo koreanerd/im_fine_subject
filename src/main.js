@@ -1,8 +1,8 @@
-import { subscribe, getState } from "./state.js";
-import { chartRenderer } from "./chartRenderer.js";
-import { tableRenderer } from "./tableRenderer.js";
-import { jsonEditorRenderer } from "./jsonEditorRenderer.js";
-import { setupFormHandler } from "./formHandler.js";
+import { subscribe } from "./core/state.js";
+import { chartRenderer } from "./components/chartRenderer.js";
+import { tableRenderer } from "./components/tableRenderer.js";
+import { jsonEditorRenderer } from "./components/jsonEditorRenderer.js";
+import { setupFormHandler } from "./core/formHandler.js";
 /**
  * 화면에 필요한 기본 레이아웃(div, textarea 등)을 생성합니다.
  *
