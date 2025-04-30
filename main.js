@@ -35,8 +35,8 @@ function createLayout() {
 
   body.appendChild(chartContainer);
   body.appendChild(tableContainer);
-  body.appendChild(jsonEditor);
   body.appendChild(addForm);
+  body.appendChild(jsonEditor);
 }
 
 /**
