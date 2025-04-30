@@ -1,6 +1,6 @@
 import { getState, setState } from "../core/state.js";
 import { createTextElement } from "../utils/utils.js";
-import { resetIdCounterTo } from "../core/idManager.js"; // ID 관리 일관성을 위해 사용
+import { resetIdCounterTo } from "../core/idManager.js";
 
 export function jsonEditorRenderer() {
   const container = document.getElementById("json-editor");
@@ -8,7 +8,7 @@ export function jsonEditorRenderer() {
   if (!container) return;
 
   container.innerHTML = "";
-  container.appendChild(createTextElement("h2", "JSON 편집기"));
+  container.appendChild(createTextElement("h2", "JSON Editor"));
 
   const textarea = document.createElement("textarea");
   textarea.id = "json-input";

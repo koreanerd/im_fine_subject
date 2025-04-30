@@ -38,7 +38,7 @@ function createLayout() {
   const labelInput = document.createElement("input");
   labelInput.type = "text";
   labelInput.id = "input-label";
-  labelInput.placeholder = "제목";
+  labelInput.placeholder = "이름";
   labelInput.required = true;
   labelInput.oninvalid = function () {
     this.setCustomValidity("제목을 입력해주세요!");

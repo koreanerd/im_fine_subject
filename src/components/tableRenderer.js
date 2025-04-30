@@ -17,7 +17,7 @@ export function tableRenderer() {
 
   // 테이블 영역 초기화
   container.innerHTML = "";
-  container.appendChild(createTextElement("h2", "현재 상태"));
+  container.appendChild(createTextElement("h2", "Table"));
 
   // 데이터가 없을 경우 메시지 표시 후 종료
   if (state.length === 0) {
@@ -25,6 +25,9 @@ export function tableRenderer() {
 
     return;
   }
+
+  const tableScrollWrapper = document.createElement("div");
+  tableScrollWrapper.className = "table-scroll-wrapper";
 
   // 테이블 구조 생성
   const table = document.createElement("table");
@@ -76,6 +79,7 @@ export function tableRenderer() {
     // 삭제 버튼 셀
     const deleteCell = document.createElement("td");
     const deleteButton = createTextElement("button", "삭제");
+    deleteButton.className = "delete-button"; // 삭제 버튼에 클래스 추가
 
     deleteButton.addEventListener("click", () => {
       const newState = getState().filter((el) => el.id !== item.id);
@@ -89,11 +93,13 @@ export function tableRenderer() {
   });
 
   table.appendChild(tbody);
-  container.appendChild(table);
+  tableScrollWrapper.appendChild(table);
+  container.appendChild(tableScrollWrapper);
 
   // Apply 버튼 추가
   const applyBtn = createTextElement("button", "Apply");
   applyBtn.addEventListener("click", handleApply);
+  applyBtn.className = "apply-button"; // Apply 버튼에 클래스 추가
 
   container.appendChild(applyBtn);
 }
