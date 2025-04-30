@@ -82,9 +82,19 @@ export function tableRenderer() {
     deleteButton.className = "delete-button"; // 삭제 버튼에 클래스 추가
 
     deleteButton.addEventListener("click", () => {
-      const newState = getState().filter((el) => el.id !== item.id);
+      const filtered = getState().filter((el) => el.id !== item.id);
+
+      // 삭제 후 ID를 순서대로 다시 부여
+      const newState = filtered.map((el, index) => ({
+        id: index + 1,
+        label: el.label,
+        value: el.value,
+      }));
 
       setState(newState);
+
+      // idCounter도 최신 상태로 동기화
+      resetIdCounterTo(newState.length + 1);
     });
 
     deleteCell.appendChild(deleteButton);
