@@ -9,30 +9,31 @@ import { createTextElement } from "./utils.js";
  * - Apply 버튼을 통해 편집된 값들을 상태에 반영
  */
 export function tableRenderer() {
-  const tableContainer = document.getElementById("table-container");
-  if (!tableContainer) return;
+  const container = document.getElementById("table-container");
+
+  if (!container) return;
 
   const state = getState(); // 현재 앱 상태를 가져옴 (배열 형태)
 
   // 테이블 영역 초기화
-  tableContainer.innerHTML = "";
-  tableContainer.appendChild(createTextElement("h2", "현재 상태"));
+  container.innerHTML = "";
+  container.appendChild(createTextElement("h2", "현재 상태"));
 
   // 데이터가 없을 경우 메시지 표시 후 종료
   if (state.length === 0) {
-    tableContainer.appendChild(createTextElement("p", "데이터가 없습니다."));
+    container.appendChild(createTextElement("p", "데이터가 없습니다."));
+
     return;
   }
 
   // 테이블 구조 생성
   const table = document.createElement("table");
-
-  // 헤더 구성
   const thead = document.createElement("thead");
   const headerRow = document.createElement("tr");
   ["ID", "Label", "Value", "Action"].forEach((text) =>
     headerRow.appendChild(createTextElement("th", text))
   );
+
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
@@ -42,53 +43,59 @@ export function tableRenderer() {
   // 각 항목(item)을 행으로 렌더링
   state.forEach((item) => {
     const row = document.createElement("tr");
+    const idCell = createTextElement("td", item.id); // ID 셀 (읽기 전용)
 
-    // ID 셀 (읽기 전용)
-    const idCell = createTextElement("td", item.id);
     row.appendChild(idCell);
 
     // Label 셀 (input)
     const labelCell = document.createElement("td");
     const labelInput = document.createElement("input");
+
     labelInput.type = "text";
     labelInput.value = item.label;
     labelInput.dataset.id = item.id;
     labelInput.dataset.field = "label";
+
     labelCell.appendChild(labelInput);
     row.appendChild(labelCell);
 
     // Value 셀 (input)
     const valueCell = document.createElement("td");
     const valueInput = document.createElement("input");
+
     valueInput.type = "number";
     valueInput.value = item.value;
     valueInput.min = 0;
     valueInput.max = 100;
     valueInput.dataset.id = item.id;
     valueInput.dataset.field = "value";
+
     valueCell.appendChild(valueInput);
     row.appendChild(valueCell);
 
     // 삭제 버튼 셀
     const deleteCell = document.createElement("td");
     const deleteButton = createTextElement("button", "삭제");
+
     deleteButton.addEventListener("click", () => {
       const newState = getState().filter((el) => el.id !== item.id);
+
       setState(newState);
     });
+
     deleteCell.appendChild(deleteButton);
     row.appendChild(deleteCell);
-
     tbody.appendChild(row);
   });
 
   table.appendChild(tbody);
-  tableContainer.appendChild(table);
+  container.appendChild(table);
 
   // Apply 버튼 추가
   const applyBtn = createTextElement("button", "Apply");
   applyBtn.addEventListener("click", handleApply);
-  tableContainer.appendChild(applyBtn);
+
+  container.appendChild(applyBtn);
 }
 
 /**
