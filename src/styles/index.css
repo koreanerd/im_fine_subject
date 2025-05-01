@@ -107,6 +107,13 @@ h2 {
   margin-bottom: 20px;
 }
 
+#chart-container p {
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
 .chart-area {
   display: flex;
   align-items: flex-end;
@@ -166,6 +173,21 @@ h2 {
   background: #1180ff;
   border-radius: 4px 4px 0 0;
   cursor: pointer;
+  height: 0; /* 시작 높이 */
+  animation: grow-up 0.5s ease-out forwards;
+}
+
+.bar:hover {
+  opacity: 0.7;
+}
+
+@keyframes grow-up {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--target-height);
+  }
 }
 
 /********* 테이블 영역 *********/
@@ -180,6 +202,12 @@ h2 {
   margin-bottom: 10px;
 }
 
+#table-container p {
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
 #table-container .table-scroll-wrapper {
   flex: 1;
   overflow-y: auto;
@@ -234,6 +262,10 @@ h2 {
   display: block;
 }
 
+#table-container .apply-button:hover {
+  opacity: 0.7;
+}
+
 /********* 입력 폼 영역 *********/
 #add-form {
   height: 10%;
@@ -269,6 +301,10 @@ h2 {
   border-radius: 6px;
 }
 
+#add-form button:hover {
+  opacity: 0.7;
+}
+
 #json-editor {
   flex: 1;
   display: flex;
@@ -295,4 +331,8 @@ h2 {
   margin-top: 10px;
   margin: 0 auto;
   display: block;
+}
+
+#json-editor button:hover {
+  opacity: 0.7;
 }
