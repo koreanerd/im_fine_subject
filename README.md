@@ -68,6 +68,9 @@
         └── utils.js              # DOM 생성 등 반복 로직 추출 (ex: createTextElement)
 
 ```
+## 데모
+![May-01-2025 12-26-18](https://github.com/user-attachments/assets/24e0bb6d-8fc0-47da-aa17-80dce7fc7888)
+
 
 ## 주요 개발과정 고민
 
