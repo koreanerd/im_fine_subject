@@ -55,6 +55,7 @@ export function tableRenderer() {
 
     // ID (수정 불가)
     const idCell = createTextElement("td", item.id);
+    idCell.style.cursor = "not-allowed";
     row.appendChild(idCell);
 
     // Label (수정 가능)
