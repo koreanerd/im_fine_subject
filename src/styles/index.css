@@ -6,17 +6,16 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #eeeeee;
+  color: #333;
+  line-height: 1.6;
   font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  background: #eeeeee;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 ul,
@@ -52,8 +51,16 @@ h2 {
   font-weight: 600;
 }
 
+#my-name {
+  margin-right: 10px;
+  color: #666;
+  font-size: 18px;
+  text-align: right;
+}
+
 /********* 전체 앱 컨테이너 *********/
 #app-container {
+  margin: auto;
   display: flex;
   gap: 24px;
   width: 100%;

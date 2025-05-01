@@ -11,6 +11,10 @@
 export function createLayout() {
   const body = document.body;
 
+  const name = document.createElement("div");
+  name.id = "my-name";
+  name.textContent = "아이엠파인 SD팀 지원자 조빈";
+
   const appContainer = document.createElement("div");
   appContainer.id = "app-container";
 
@@ -79,5 +83,6 @@ export function createLayout() {
   appContainer.appendChild(leftPane);
   appContainer.appendChild(rightPane);
 
+  body.appendChild(name);
   body.appendChild(appContainer);
 }
